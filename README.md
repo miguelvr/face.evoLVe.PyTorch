@@ -47,7 +47,7 @@ The code of [face.evoLVe](#Introduction) is released under the MIT License.
 ### Introduction 
 :information_desk_person:
 
-<img src="resources/Fig1.png" width="450px"/>  <img src="resources/Fig17.png" width="400px"/>
+<img src="resources/images/Fig1.png" width="450px"/>  <img src="resources/images/Fig17.png" width="400px"/>
 
 * This repo provides a comprehensive face recognition library for face related analytics \& applications, including face alignment (detection, landmark localization, affine transformation, *etc.*), data processing (*e.g.*, augmentation, data balancing, normalization, *etc.*), various backbones (*e.g.*, [ResNet](https://arxiv.org/pdf/1512.03385.pdf), [IR](https://arxiv.org/pdf/1512.03385.pdf), [IR-SE](https://arxiv.org/pdf/1709.01507.pdf), ResNeXt, SE-ResNeXt, DenseNet, [LightCNN](https://arxiv.org/pdf/1511.02683.pdf), MobileNet, ShuffleNet, DPN, *etc.*), various losses (*e.g.*, Softmax, [Focal](https://arxiv.org/pdf/1708.02002.pdf), Center, [SphereFace](https://arxiv.org/pdf/1704.08063.pdf), [CosFace](https://arxiv.org/pdf/1801.09414.pdf), [AmSoftmax](https://arxiv.org/pdf/1801.05599.pdf), [ArcFace](https://arxiv.org/pdf/1801.07698.pdf), Triplet, *etc.*) and bags of tricks for improving performance (*e.g.*, training refinements, model tweaks, knowledge distillation, *etc.*).
 * The current distributed training schema with multi-GPUs under PyTorch and other mainstream platforms parallels the backbone across multi-GPUs while relying on a single master to compute the final bottleneck (fully-connected/softmax) layer. This is not an issue for conventional face recognition with moderate number of identities. However, it struggles with large-scale face recognition, which requires recognizing millions of identities in the real world. The master can hardly hold the oversized final layer while the slaves still have redundant computation resource, leading to small-batch training or even failed training. To address this problem, this repo provides a highly-elegant, effective and efficient distributed training schema with multi-GPUs under PyTorch, supporting not only the backbone, but also the head with the fully-connected (softmax) layer, to facilitate high-performance large-scale face recognition.
@@ -94,8 +94,8 @@ While not required, for optimal performance it is **highly** recommended to run 
 ### Face Alignment 
 :triangular_ruler:
 
-<img src="resources/Fig2.png" width="900px"/>
-<img src="resources/Fig3.png" width="500px"/>
+<img src="resources/images/Fig2.png" width="900px"/>
+<img src="resources/images/Fig3.png" width="500px"/>
 
 * This section is based on the work of [MTCNN](https://arxiv.org/pdf/1604.02878.pdf).
 * Folder: ```./align```
@@ -447,39 +447,39 @@ While not required, for optimal performance it is **highly** recommended to run 
 * Now, you can start to play with [face.evoLVe](#Introduction) and run ```train.py```. User friendly information will popped out on your terminal:
   * About overall configuration:
   
-    <img src="resources/Fig4.png" width="900px"/>
+    <img src="resources/images/Fig4.png" width="900px"/>
   
   * About number of training classes:
   
-    <img src="resources/Fig5.png" width="400px"/>
+    <img src="resources/images/Fig5.png" width="400px"/>
   
   * About backbone details:
   
-    <img src="resources/Fig6.png" width="900px"/>
+    <img src="resources/images/Fig6.png" width="900px"/>
   
   * About head details:
   
-    <img src="resources/Fig7.png" width="400px"/>
+    <img src="resources/images/Fig7.png" width="400px"/>
   
   * About loss details:
   
-    <img src="resources/Fig8.png" width="400px"/>
+    <img src="resources/images/Fig8.png" width="400px"/>
   
   * About optimizer details:
   
-    <img src="resources/Fig9.png" width="400px"/>
+    <img src="resources/images/Fig9.png" width="400px"/>
     
   * About resume training:
   
-    <img src="resources/Fig10.png" width="400px"/>
+    <img src="resources/images/Fig10.png" width="400px"/>
   
   * About training status \& statistics (when batch index reachs ```DISP_FREQ``` or at the end of each epoch):
   
-    <img src="resources/Fig11.png" width="900px"/>
+    <img src="resources/images/Fig11.png" width="900px"/>
   
   * About validation statistics \& save checkpoints (at the end of each epoch):
   
-    <img src="resources/Fig12.png" width="900px"/>
+    <img src="resources/images/Fig12.png" width="900px"/>
     
 * Monitor on-the-fly GPU occupancy with ```watch -d -n 0.01 nvidia-smi```.
 * Please refer to Sec. [Model Zoo](#Model-Zoo) for specific model weights and corresponding performance.
@@ -566,7 +566,7 @@ While not required, for optimal performance it is **highly** recommended to run 
     ```
   * Training \& validation statistics
   
-    <img src="resources/Fig13.png" width="1000px"/>
+    <img src="resources/images/Fig13.png" width="1000px"/>
       
   * Performance
 
